@@ -47,3 +47,8 @@
 
 - name: Load Schema
   ansible.builtin.shell: mysql -h {{ lookup('aws_ssm', 'expense.backend.DB_HOST', region='us-east-1' ) }} -uroot -p{{ lookup('aws_ssm', 'expense.mysql.DB_PASS', region='us-east-1' ) }} < /app/schema/backend.sql
+
+- name: Install Node Exporter
+  ansible.builtin.import_role:
+    name: prometheus
+    tasks_from: node-exporter
