@@ -13,7 +13,3 @@ receivers:
         auth_username: "{{ lookup('aws_ssm', 'prometheus.alertmanager.user', region='us-east-1' ) }}"
         auth_password: "{{ lookup('aws_ssm', 'prometheus.alertmanager.pass', region='us-east-1' ) }}"
         require_tls: true
-inhibit_rules:
-  - source_match:
-      severity: 'critical'
-    equal: ['alertname', 'dev', 'instance']
