@@ -29,10 +29,10 @@
     name: common
     tasks_from: app_prereq
 
-- name: Install Dependencies
-  ansible.builtin.shell: npm install
-  args:
-    chdir: /app
+#- name: Install NodeJS Dependencies
+#  ansible.builtin.shell: npm install
+#  args:
+#    chdir: /app
 
 - name: Restart Backend service
   ansible.builtin.systemd:
